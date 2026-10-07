@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS2 AP Stats Poster Wireframe Guide (Easel Pad Aspect Ratio)</title>
+    <title>CS2 AP Stats Poster Blueprint (Monochrome)</title>
     <style>
         :root {
-            --bg-color: #e2e8f0;
+            --bg-color: #ffffff;
             --panel-bg: #ffffff;
-            --border-color: #0f172a; /* Heavy ink line style */
-            --accent-blue: #1d4ed8;
-            --text-main: #0f172a;
-            --text-muted: #475569;
+            --text-main: #000000;
+            --text-muted: #333333;
+            --border-line: #000000;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
+            background-color: #f0f0f0;
             color: var(--text-main);
             margin: 0;
             padding: 20px;
@@ -26,46 +29,42 @@
 
         /* 
            Easel Pad Sheet Aspect Ratio (25" x 30" vertical/portrait orientation).
-           Scaled to 1000px width by 1200px height for screen visualization.
+           Scaled to 1000px width by 1200px height.
         */
         .easel-pad-poster {
             width: 1000px;
             height: 1200px;
-            background-color: #ffffff;
-            border: 4px solid #334155;
-            border-radius: 4px;
-            padding: 24px;
-            box-sizing: border-box;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            background-color: var(--bg-color);
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 16px;
+            overflow: hidden;
         }
 
-        /* Box Styling matching paper sketch */
+        /* Borderless Section Containers */
         .box {
             background-color: var(--panel-bg);
-            border: 3px solid var(--border-color);
-            border-radius: 6px;
-            padding: 12px;
-            box-sizing: border-box;
+            border: none;
+            padding: 4px;
             display: flex;
             flex-direction: column;
         }
 
         .box-title {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: var(--accent-blue);
+            color: #000000;
             margin-bottom: 6px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 2px;
+            border-bottom: 2px solid var(--border-line);
+            padding-bottom: 3px;
         }
 
         p, ul, ol {
-            font-size: 12px;
+            font-size: 11.5px;
             line-height: 1.35;
             margin: 0 0 4px 0;
             color: var(--text-main);
@@ -81,20 +80,20 @@
 
         /* ROW 1: TOP QUESTION BANNER */
         .row-question {
-            height: 90px;
+            height: 95px;
         }
 
         /* ROW 2: MAIN MIDDLE SECTION (3 Columns) */
         .row-middle {
             display: grid;
             grid-template-columns: 28% 34% 38%;
-            gap: 14px;
-            height: 610px;
+            gap: 18px;
+            height: 600px;
         }
 
         .col-left {
             display: grid;
-            grid-template-rows: 1.2fr 1fr 0.8fr;
+            grid-template-rows: 1.15fr 0.95fr 0.9fr;
             gap: 12px;
         }
 
@@ -120,15 +119,15 @@
         .row-bottom {
             display: grid;
             grid-template-columns: 50% 50%;
-            gap: 14px;
-            height: 430px;
+            gap: 18px;
+            height: 425px;
         }
 
-        /* Image Placeholder Boxes */
+        /* Clean Image Placeholder Area (No color) */
         .image-box {
-            border: 2px dashed var(--accent-blue);
-            background-color: #eff6ff;
-            border-radius: 6px;
+            border: 1px dashed #000000;
+            background-color: #ffffff;
+            border-radius: 4px;
             padding: 8px;
             text-align: center;
             margin-top: 6px;
@@ -141,16 +140,16 @@
 
         .image-box img {
             max-width: 100%;
-            max-height: 180px;
+            max-height: 190px;
             height: auto;
-            border-radius: 4px;
+            filter: grayscale(100%);
         }
 
         .image-box span {
             display: block;
             font-weight: 700;
-            color: var(--accent-blue);
-            font-size: 12px;
+            color: #000000;
+            font-size: 11px;
         }
 
         table {
@@ -161,18 +160,20 @@
         }
 
         th, td {
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-line);
             padding: 3px 4px;
             text-align: left;
+            color: #000000;
         }
 
         th {
-            background-color: #f1f5f9;
+            background-color: #ffffff;
+            font-weight: bold;
         }
 
         .math-code {
-            background-color: #f8fafc;
-            border-left: 3px solid var(--accent-blue);
+            background-color: #ffffff;
+            border-left: 3px solid #000000;
             padding: 4px 6px;
             font-family: monospace;
             font-size: 10.5px;
@@ -182,7 +183,7 @@
 </head>
 <body>
 
-    <!-- 25" x 30" Poster Pad Blueprint -->
+    <!-- 25" x 30" Easel Pad Poster Sheet -->
     <div class="easel-pad-poster">
 
         <!-- ================= ROW 1: QUESTION ================= -->
@@ -201,10 +202,10 @@
                     <div class="box-title">Procedure</div>
                     <p><strong>Design:</strong> Randomized Comparative Experiment.</p>
                     <p><strong>Assignment:</strong> Pre-game coin flip (Heads = AK-47, Tails = Galil AR).</p>
-                    <p><strong>Control Protocol:</strong> Buy only assigned rifle on >$3,900 T-side rounds. Early forfeits or wrong-weapon buy matches are discarded.</p>
+                    <p><strong>Control Protocol:</strong> Buy only assigned rifle on >$3,900 T-side rounds. Early forfeits or wrong-weapon buys discarded.</p>
                     <p><strong>Hypothetical Sampling Paths:</strong></p>
                     <ul>
-                        <li><strong>SRS:</strong> Select 50 rounds via `randInt(1, 500)`.</li>
+                        <li><strong>SRS:</strong> Select 50 rounds via <code>randInt(1, 500)</code>.</li>
                         <li><strong>Stratified:</strong> Group by Map; sample 10 rounds per map.</li>
                         <li><strong>Cluster:</strong> Treat matches as clusters; sample 5 matches.</li>
                         <li><strong>Systematic:</strong> Sample every 5th full-buy round.</li>
@@ -214,14 +215,14 @@
                 <div class="box">
                     <div class="box-title">Population vs. Sample</div>
                     <p><strong>Population:</strong> All T-side full-buy competitive rounds played under Premier CS2 match conditions.</p>
-                    <p><strong>Sample:</strong> n = 73 T-side full-buy rounds across 10 completed matches (30 AK-47 rounds, 43 Galil AR rounds).</p>
+                    <p><strong>Sample:</strong> n = 73 T-side full-buy rounds across 10 completed matches (30 AK-47, 43 Galil AR).</p>
                     <p><strong>Scope:</strong> Random assignment allows <strong>causal inference</strong> for this player, but lack of random selection prevents <strong>generalization</strong> to all CS2 players.</p>
                 </div>
 
                 <div class="box">
                     <div class="box-title">Explanatory Var / Response Var</div>
                     <p><strong>Explanatory Variable (Categorical):</strong> Assigned Rifle Type (2 levels: AK-47 vs. Galil AR).</p>
-                    <p><strong>Response Variable (Quantitative):</strong> Player Damage Dealt per T-side Full-Buy Round (measured in Health Points / HP, range 0–500 HP).</p>
+                    <p><strong>Response Variable (Quantitative):</strong> Player Damage Dealt per T-side Full-Buy Round (measured in HP, range 0–500 HP).</p>
                 </div>
             </div>
 
