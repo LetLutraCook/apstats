@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS2 AP Stats Poster Wireframe Guide</title>
+    <title>CS2 AP Stats Poster Wireframe Guide (Easel Pad Aspect Ratio)</title>
     <style>
         :root {
-            --bg-color: #f1f5f9;
+            --bg-color: #e2e8f0;
             --panel-bg: #ffffff;
-            --border-color: #0f172a; /* Bold dark borders like the sketch */
-            --header-bg: #1e293b;
-            --header-text: #ffffff;
-            --accent-blue: #2563eb;
+            --border-color: #0f172a; /* Heavy ink line style */
+            --accent-blue: #1d4ed8;
             --text-main: #0f172a;
             --text-muted: #475569;
         }
@@ -21,78 +19,96 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
-            padding: 24px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
         }
 
-        /* Poster Container matching physical poster dimensions */
-        .poster-container {
-            max-width: 1400px;
-            margin: 0 auto;
+        /* 
+           Easel Pad Sheet Aspect Ratio (25" x 30" vertical/portrait orientation).
+           Scaled to 1000px width by 1200px height for screen visualization.
+        */
+        .easel-pad-poster {
+            width: 1000px;
+            height: 1200px;
+            background-color: #ffffff;
+            border: 4px solid #334155;
+            border-radius: 4px;
+            padding: 24px;
+            box-sizing: border-box;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
         }
 
-        /* Generic Box Styling */
+        /* Box Styling matching paper sketch */
         .box {
             background-color: var(--panel-bg);
             border: 3px solid var(--border-color);
-            border-radius: 8px;
-            padding: 16px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-radius: 6px;
+            padding: 12px;
+            box-sizing: border-box;
             display: flex;
             flex-direction: column;
         }
 
         .box-title {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: var(--accent-blue);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             border-bottom: 2px solid var(--border-color);
-            padding-bottom: 4px;
+            padding-bottom: 2px;
         }
 
         p, ul, ol {
-            font-size: 13.5px;
-            line-height: 1.45;
-            margin: 0 0 6px 0;
+            font-size: 12px;
+            line-height: 1.35;
+            margin: 0 0 4px 0;
             color: var(--text-main);
         }
 
         ul, ol {
-            padding-left: 18px;
+            padding-left: 16px;
         }
 
         li {
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
-        /* --- ROW 1: TOP QUESTION BANNER --- */
+        /* ROW 1: TOP QUESTION BANNER */
         .row-question {
-            width: 100%;
-            box-sizing: border-box;
+            height: 90px;
         }
 
-        /* --- ROW 2: MAIN MIDDLE SECTION (3 Columns) --- */
+        /* ROW 2: MAIN MIDDLE SECTION (3 Columns) */
         .row-middle {
             display: grid;
             grid-template-columns: 28% 34% 38%;
-            gap: 16px;
+            gap: 14px;
+            height: 610px;
         }
 
         .col-left {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+            display: grid;
+            grid-template-rows: 1.2fr 1fr 0.8fr;
+            gap: 12px;
         }
 
         .col-center {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px;
+        }
+
+        .center-subgrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            flex-grow: 1;
         }
 
         .col-right {
@@ -100,33 +116,22 @@
             flex-direction: column;
         }
 
-        /* Center column split boxes */
-        .box-hypothesis {
-            height: auto;
-        }
-
-        .center-subgrid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            flex-grow: 1;
-        }
-
-        /* --- ROW 3: BOTTOM SECTION (VSCO & RD.PNG) --- */
+        /* ROW 3: BOTTOM SECTION (VSCO & RD.PNG) */
         .row-bottom {
             display: grid;
             grid-template-columns: 50% 50%;
-            gap: 16px;
+            gap: 14px;
+            height: 430px;
         }
 
-        /* Image Display Box */
+        /* Image Placeholder Boxes */
         .image-box {
             border: 2px dashed var(--accent-blue);
             background-color: #eff6ff;
             border-radius: 6px;
-            padding: 12px;
+            padding: 8px;
             text-align: center;
-            margin-top: 8px;
+            margin-top: 6px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -136,30 +141,28 @@
 
         .image-box img {
             max-width: 100%;
-            max-height: 280px;
+            max-height: 180px;
             height: auto;
             border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .image-box span {
             display: block;
-            margin-top: 6px;
             font-weight: 700;
             color: var(--accent-blue);
-            font-size: 13px;
+            font-size: 12px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 12px;
-            margin: 6px 0;
+            font-size: 10.5px;
+            margin: 4px 0;
         }
 
         th, td {
             border: 1px solid var(--border-color);
-            padding: 5px;
+            padding: 3px 4px;
             text-align: left;
         }
 
@@ -170,64 +173,65 @@
         .math-code {
             background-color: #f8fafc;
             border-left: 3px solid var(--accent-blue);
-            padding: 6px 8px;
+            padding: 4px 6px;
             font-family: monospace;
-            font-size: 12px;
-            margin: 4px 0;
-        }
-
-        @media (max-width: 900px) {
-            .row-middle, .row-bottom, .center-subgrid {
-                grid-template-columns: 1fr;
-            }
+            font-size: 10.5px;
+            margin: 3px 0;
         }
     </style>
 </head>
 <body>
 
-    <div class="poster-container">
+    <!-- 25" x 30" Poster Pad Blueprint -->
+    <div class="easel-pad-poster">
 
         <!-- ================= ROW 1: QUESTION ================= -->
         <div class="box row-question">
             <div class="box-title">Question (Research Objective)</div>
-            <p><strong>Research Question:</strong> Does equipping the AK-47 produce a statistically significant increase in Average Damage per Round (ADR) during T-side "Full-Buy" rounds (>$3,900) compared to equipping the Galil AR in Premier Counter-Strike 2 matches?</p>
-            <p><strong>Operational Definition:</strong> Round Damage (HP) is total health-point damage dealt to enemy players in a T-side full-buy round (0 to 500 HP). Full-Buy = >$3,900 start money (excluding pistol, eco, and force-buy rounds).</p>
+            <p><strong>Research Question:</strong> Does equipping the AK-47 produce a statistically significant increase in Average Damage per Round (ADR) during T-side "Full-Buy" rounds (>$3,900) compared to equipping the Galil AR in Premier CS2 matches?</p>
+            <p><strong>Operational Definition:</strong> Round Damage (HP) = total health damage dealt in a T-side full-buy round (0–500 HP). Full-Buy = >$3,900 start money (excluding pistol, eco, and force-buy rounds).</p>
         </div>
 
         <!-- ================= ROW 2: MIDDLE SECTION ================= -->
         <div class="row-middle">
 
-            <!-- LEFT COLUMN: PROCEDURE & POPULATION VS SAMPLE -->
+            <!-- LEFT COLUMN: PROCEDURE, POPULATION VS SAMPLE, EXPLANATORY/RESPONSE VAR -->
             <div class="col-left">
-                <div class="box" style="flex: 1;">
+                <div class="box">
                     <div class="box-title">Procedure</div>
-                    <p><strong>Structural Choice:</strong> Randomized Comparative Experiment.</p>
-                    <p><strong>Treatment Assignment:</strong> Before each Premier match, a coin flip determined assigned weapon (Heads = AK-47, Tails = Galil AR).</p>
-                    <p><strong>Control Protocol:</strong> Buy <em>only</em> the assigned rifle on T-side full-buy rounds (>$3,900). Play normally on pistol/eco rounds. Matches with accidental wrong-weapon buys or early forfeits are discarded.</p>
-                    <p><strong>Hypothetical Sampling Paths (Prompt Requirements):</strong></p>
+                    <p><strong>Design:</strong> Randomized Comparative Experiment.</p>
+                    <p><strong>Assignment:</strong> Pre-game coin flip (Heads = AK-47, Tails = Galil AR).</p>
+                    <p><strong>Control Protocol:</strong> Buy only assigned rifle on >$3,900 T-side rounds. Early forfeits or wrong-weapon buy matches are discarded.</p>
+                    <p><strong>Hypothetical Sampling Paths:</strong></p>
                     <ul>
-                        <li><strong>SRS:</strong> Select 50 round IDs out of 500 historical rounds using `randInt(1, 500)` without replacement.</li>
-                        <li><strong>Stratified:</strong> Group rounds by Map (Mirage, Nuke, Inferno) and randomly sample 10 rounds per map.</li>
-                        <li><strong>Cluster:</strong> Treat Premier matches as clusters, randomly select 5 matches, and record all full-buy rounds within them.</li>
-                        <li><strong>Systematic:</strong> Select every 5th T-side full-buy round chronologically after a random start between 1 and 5.</li>
+                        <li><strong>SRS:</strong> Select 50 rounds via `randInt(1, 500)`.</li>
+                        <li><strong>Stratified:</strong> Group by Map; sample 10 rounds per map.</li>
+                        <li><strong>Cluster:</strong> Treat matches as clusters; sample 5 matches.</li>
+                        <li><strong>Systematic:</strong> Sample every 5th full-buy round.</li>
                     </ul>
                 </div>
 
-                <div class="box" style="flex: 1;">
+                <div class="box">
                     <div class="box-title">Population vs. Sample</div>
-                    <p><strong>Population:</strong> All T-side full-buy competitive rounds played under standardized Premier CS2 match conditions.</p>
-                    <p><strong>Sample:</strong> n = 73 T-side full-buy rounds collected across 10 completed Premier matches (30 AK-47 rounds, 43 Galil AR rounds).</p>
-                    <p><strong>Scope of Inference:</strong> Treatments were <strong>randomly assigned</strong> via coin flip, allowing <strong>causal inference</strong> regarding weapon choice and round damage output. However, because the player was <strong>not randomly selected</strong> from all CS2 players, results <strong>cannot be generalized</strong> to the broader player base.</p>
+                    <p><strong>Population:</strong> All T-side full-buy competitive rounds played under Premier CS2 match conditions.</p>
+                    <p><strong>Sample:</strong> n = 73 T-side full-buy rounds across 10 completed matches (30 AK-47 rounds, 43 Galil AR rounds).</p>
+                    <p><strong>Scope:</strong> Random assignment allows <strong>causal inference</strong> for this player, but lack of random selection prevents <strong>generalization</strong> to all CS2 players.</p>
+                </div>
+
+                <div class="box">
+                    <div class="box-title">Explanatory Var / Response Var</div>
+                    <p><strong>Explanatory Variable (Categorical):</strong> Assigned Rifle Type (2 levels: AK-47 vs. Galil AR).</p>
+                    <p><strong>Response Variable (Quantitative):</strong> Player Damage Dealt per T-side Full-Buy Round (measured in Health Points / HP, range 0–500 HP).</p>
                 </div>
             </div>
 
             <!-- CENTER COLUMN: HYPOTHESIS, CONFOUNDING, BIAS -->
             <div class="col-center">
-                <div class="box box-hypothesis">
+                <div class="box" style="height: 105px;">
                     <div class="box-title">Hypothesis</div>
                     <ul>
-                        <li><strong>Null Hypothesis (H<sub>0</sub>):</strong> &mu;<sub>AK</sub> - &mu;<sub>Galil</sub> = 0 (No difference in true mean round damage between AK-47 and Galil AR).</li>
-                        <li><strong>Alternative Hypothesis (H<sub>a</sub>):</strong> &mu;<sub>AK</sub> - &mu;<sub>Galil</sub> > 0 (The AK-47 yields a higher true mean round damage than the Galil AR due to its one-tap headshot capability).</li>
+                        <li><strong>Null (H<sub>0</sub>):</strong> &mu;<sub>AK</sub> - &mu;<sub>Galil</sub> = 0 (No difference in true mean round damage).</li>
+                        <li><strong>Alternative (H<sub>a</sub>):</strong> &mu;<sub>AK</sub> - &mu;<sub>Galil</sub> > 0 (AK-47 yields higher true mean round damage due to one-tap headshot capability).</li>
                     </ul>
                 </div>
 
@@ -235,16 +239,16 @@
                     <div class="box">
                         <div class="box-title">Possible Confounding Variable</div>
                         <ul>
-                            <li><strong>Map Geometry / Side Disparity:</strong> Maps like Nuke feature tighter choke points than Inferno or Mirage, altering engagement distances where Galil damage drop-off occurs.</li>
-                            <li><strong>Matchmaking Variance:</strong> Skill levels of opposing players and teammate utility setups vary match-to-match, introducing noise into round damage.</li>
+                            <li><strong>Map Geometry:</strong> Tight choke maps (Nuke) alter engagement distances vs open maps (Inferno/Mirage), impacting Galil damage drop-off.</li>
+                            <li><strong>Matchmaking Variance:</strong> Opponent skill tiers and team utility influence round damage opportunities.</li>
                         </ul>
                     </div>
 
                     <div class="box">
                         <div class="box-title">Possible Source of Bias</div>
                         <ul>
-                            <li><strong>Selection / Sampling Bias:</strong> Mitigated by pre-match coin flip randomization for treatment assignment.</li>
-                            <li><strong>Economy Disparity (Non-Response / Execution Error):</strong> Early match forfeits or blowout matches (e.g., 5–13 loss with only 2 full-buy rounds) create extreme economic distortion; handled via protocol discard rules.</li>
+                            <li><strong>Selection Bias:</strong> Controlled via pre-match coin flip treatment assignment.</li>
+                            <li><strong>Economic Starvation Bias:</strong> Blowout matches (e.g., 5–13 loss with only 2 full-buy rounds) distort round counts; handled via protocol discard rules.</li>
                         </ul>
                     </div>
                 </div>
@@ -252,7 +256,7 @@
 
             <!-- RIGHT COLUMN: WEAPON TYPE FREQUENCY BY ROUND (WT.PNG) -->
             <div class="col-right">
-                <div class="box" style="height: 100%; box-sizing: border-box;">
+                <div class="box" style="height: 100%;">
                     <div class="box-title">Weapon Type Frequency by Round (wt.png)</div>
                     
                     <table>
@@ -285,7 +289,7 @@
                     <div class="image-box">
                         <img src="wt.png" alt="Weapon Type Frequency Graph (wt.png)" onerror="this.style.display='none'">
                         <span>[ Place Image Here: wt.png ]</span>
-                        <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Segmented Bar Chart or Mosaic Plot displaying categorical distribution of rounds (30 AK vs 43 Galil).</p>
+                        <p style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Segmented Bar Chart / Mosaic Plot displaying categorical round frequencies (30 AK vs 43 Galil).</p>
                     </div>
                 </div>
             </div>
@@ -342,17 +346,17 @@
                     </tbody>
                 </table>
 
-                <p style="margin-top: 6px;"><strong>1.5 &times; IQR Outlier Calculations:</strong></p>
+                <p style="margin-top: 4px;"><strong>1.5 &times; IQR Outlier Calculations:</strong></p>
                 <div class="math-code">
                     AK Upper: 198.0 + 1.5(147.0) = 418.5 HP | Max = 300.0 &le; 418.5 (No Outliers)<br>
                     Galil Upper: 180.0 + 1.5(154.0) = 411.0 HP | Max = 300.0 &le; 411.0 (No Outliers)
                 </div>
 
                 <ul>
-                    <li><strong>Variability:</strong> AK-47 round damage showed higher dispersion (s = 84.2 HP) than Galil AR (s = 79.1 HP).</li>
-                    <li><strong>Shape:</strong> Both distributions are unimodal and strongly right-skewed, peaking at 0 HP and 100 HP.</li>
+                    <li><strong>Variability:</strong> AK-47 damage showed higher dispersion (s = 84.2 HP) than Galil AR (s = 79.1 HP).</li>
+                    <li><strong>Shape:</strong> Both distributions are unimodal and right-skewed, peaking at 0 HP and 100 HP.</li>
                     <li><strong>Center:</strong> AK-47 mean damage (&bar;x = 124.6 HP) slightly exceeded Galil AR (&bar;x = 120.3 HP); medians were identical at 100.0 HP.</li>
-                    <li><strong>Outliers:</strong> Zero outliers present in either treatment group under the 1.5 &times; IQR rule.</li>
+                    <li><strong>Outliers:</strong> Zero outliers present in either group under the 1.5 &times; IQR rule.</li>
                 </ul>
             </div>
 
@@ -364,7 +368,7 @@
                 <div class="image-box">
                     <img src="rd.png" alt="Round Damage Graph (rd.png)" onerror="this.style.display='none'">
                     <span>[ Place Image Here: rd.png ]</span>
-                    <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Histograms and parallel Box Plots illustrating shape, center, spread, and lack of outliers for AK-47 vs Galil AR.</p>
+                    <p style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Histograms and parallel Box Plots illustrating shape, center, spread, and lack of outliers for AK-47 vs Galil AR.</p>
                 </div>
             </div>
 
